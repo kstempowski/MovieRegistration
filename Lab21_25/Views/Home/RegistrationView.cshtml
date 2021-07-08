@@ -1,0 +1,57 @@
+﻿@model Movie
+
+@{
+    ViewData["Title"] = "Registration Form";
+}
+
+<h3>Validation Summary</h3>
+@Html.ValidationSummary()
+
+
+<form asp-action="DisplayMovie" method="post">
+    <label asp-for="ID"></label>
+    <input type="number" name="ID" value="@Model.ID" />
+    <br />
+
+    <label asp-for="Title"></label>
+    <input type="text" name="Title" value="@Model.Title" required />
+    @Html.ValidationMessageFor(x => x.Title)
+    <br />
+
+    <label asp-for="Genre"></label>
+    <br />
+
+    <input type="radio" name="Genre" value="Scifi">
+    <label for="Scifi">Scifi</label>
+    <br>
+
+    <input type="radio" name="Genre" value="Action">
+    <label for="Action">Action</label><br>
+
+    <input type="radio" name="Genre" value="Drama">
+    <label for="Drama">Drama</label><br>
+
+    <input type="radio" name="Genre" value="Comedy">
+    <label for="Comedy">Comedy</label>
+    <br />
+
+    <input type="radio" name="Genre" value="Horror">
+    <label for="Horror">Horror</label>
+    <br />
+
+    <label asp-for="Year"></label>
+    <input type="date" name="Year" value="@Model.Year" />
+    @Html.ValidationMessageFor(x => x.Year);
+    <br />
+
+    <label asp-for="Actors"></label>
+    <input type="text" name="Actors" value="@Model.Actors" />
+    <br />
+
+    <label asp-for="Directors"></label>
+    <input type="text" name="Directors" value="@Model.Directors" />
+    <br />
+
+    <input type="submit" value="Add Movie!" />
+
+</form>
